@@ -27,12 +27,13 @@ a:active {
 
 .paper{
 	background: white;
-	min-width: 290px;
+	min-width: 270px;
 	max-width: 820px;
 	padding: 64px 10%;
 	padding-top: 56px;
 
 	margin: 0 auto;
+	
 	box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
 }
 
@@ -153,6 +154,7 @@ a:active {
 .section-entry-header { 
 	display: flex;
 	justify-content: space-between; 
+	overflow: hidden;
 }
 
 .section-entry-header-contents {}
@@ -177,6 +179,10 @@ a:active {
 .nowrap { white-space: nowrap; }
 
 @media screen and (max-width: 766px) {
+	.paper {
+		padding: 16px;
+		padding-top: 8px;
+	}
 	.section {
 		flex-direction: column;
 	}
@@ -184,8 +190,7 @@ a:active {
 		flex-basis: auto;
 		font-size: 125%;
 	}
-	.paper {
-		padding: 16px;
-		padding-top: 8px;
+	.section-entry-points li {
+		margin: 0 32px 0.33em 0;
 	}
 }
