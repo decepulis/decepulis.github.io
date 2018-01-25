@@ -45,7 +45,9 @@ a:active {
 }
 .header-name {
 	font-weight:  700;
-	font-size: 200%;
+	font-size: 225%;
+
+	height: 44px;
 
 	padding-top: 8px;
 
@@ -53,6 +55,8 @@ a:active {
 	border-bottom-width: 1px;
 }
 .header-subtitle {
+	min-height: 44px;
+
 	margin: 0 0;
 	padding: 0 8px;
 
@@ -63,6 +67,8 @@ a:active {
 .nav{
 	display: inline-block;
 	text-align: center;
+
+	line-height: 28px;
 
 	font-size: 100%;
 	font-weight: 400;
