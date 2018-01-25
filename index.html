@@ -4,218 +4,32 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-	<link rel="stylesheet" type="text/css" href="style.css"> 
-	<script src="navbar.js"></script>
+
 	<head>
-		<title>Darius Cepulis: Web Resume</title>
+		<title>Darius Cepulis</title>
+		<style>
+
+			body {
+				font-family: 'Roboto', sans-serif;
+				color: white;
+				-webkit-font-smoothing: antialiased;
+				background: rgb(64,64,72);
+			}
+
+			a {
+				font-weight: 500;
+				color: rgb(128,128,192);
+				cursor: pointer;
+				text-decoration: none;
+			}
+
+		</style>
 	</head>
 
 	<body>
-		<div class="paper">
-			<div class="header">
-				<div class="header-name">Darius Cepulis</div>
-				<div class="header-subtitle">
-					<a class="nav">About Me</a>
-					<a class="nav">Education</a>
-					<a class="nav">Work Experience</a>
-					<a class="nav">Skills</a>
-					<a class="nav">Related Experience</a>
-					<a class="nav">Projects</a>
-					<a class="nav">Contact</a>
-				</div>
-			</div>
-
-			<div class="section-box">
-				<div class="section" id="about">
-					<div class="section-title">About Me</div>
-					<div class="section-contents">
-						<div class="section-entry-header-contents">
-							Seeking full-time employment starting in the Fall of 2018
-						</div>
-					</div>
-				</div>
-				<div class="section" id="education">
-					<div class="section-title">Education</div>
-					<div class="section-contents">
-						<div class="section-entry">
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<b class="nowrap">MS Computer Science, </b>
-									<span class="nowrap">University of Cincinnati</span>
-								</div>
-								<i class="section-entry-header-info">August 2018</i>
-							</div>
-							<ul class="section-entry-points">
-								<li>3.89/4.00</li>
-								<li>Thesis in Information Foraging Theory</li>
-							</ul>
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<b class="nowrap">BS Computer Engineering, </b>
-									<span class="nowrap">University of Cincinnati</span>
-								</div>
-								<i class="section-entry-header-info">May 2018</i>
-							</div>
-							<ul class="section-entry-points">
-								<li>3.59/4.00</li>
-								<li>Cincinnatus Excellence Scholarship, Honors, Dean's List</li>
-								<li>Minor in Computer Science, Minor in Mathematics</li>
-							</ul>
-						</div>
-						<div class="section-entry">
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<b class="nowrap">St. Ignatius High School, </b>
-									<span class="nowrap">Cleveland, OH</span>
-								</div>
-								<i class="section-entry-header-info">Class of 2013</i>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="section" id="work-experience">
-					<div class="section-title">Work Experience</div>
-					<div class="section-contents">
-						<div class="section-entry">
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<b class="nowrap">Corporate Research Co-op, </b>
-									<b class="nowrap">Bosch, </b>
-									<span class="nowrap">Renningen, Germany</span>
-								</div>
-								<i class="section-entry-header-info">2017</i>
-							</div>
-							<ul class="section-entry-points">
-								<li>Designed & Developed software suite for sensor data aggregation & analysis</li>
-								<ul class="section-entry-subpoints">
-									<li>Modular back-end based on node.js and InfluxDB</li>
-									<li>Front-end based on modern web technologies</li>
-								</ul>
-								<li>Trained in Altium PCB design & layout, built 3D-printed enclosures in SolidWorks</li>
-								<li>Lived & Worked in a diverse, international environment</li>
-							</ul>
-						</div>
-						<div class="section-entry">
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<b class="nowrap">Innovation Lab Co-op, </b>
-									<b class="nowrap">BMW Manufacturing, </b>
-									<span class="nowrap"> Greenville, SC </span>
-								</div>
-								<i class="section-entry-header-info">2015</i>
-							</div>
-							<ul class="section-entry-points">
-								<li>Tasked with investigating applications of emerging technologies in manufacturing</li>
-								<li>Developed & Deployed iOS application for deep learning assisted automobile inspections</li>
-								<li>Supported development and coordinated trials of Google Glass application</li>
-								<li>Worked in Shell & Python to run Deep Learning benchmarks; compiled findings into paper</li>
-								<li>Designed & Built Raspberry Pi robot for exploring data processing techniques in Robotics</li>
-							</ul>
-						</div>
-						<div class="section-entry">
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<b class="nowrap">Student Researcher, </b>
-									<b class="nowrap">University of Cincinnati, </b> 
-									<span class="nowrap">Cincinnati, OH </span>
-								</div>
-								<i class="section-entry-header-info">2016</i>
-							</div>
-							<ul class="section-entry-points">
-								<li>Tasked with autonomously researching applications of neuromorphic hardware</li>
-								<ul class="section-entry-subpoints">
-									<li>Designed MATLAB simulation to explore and optimize hardware configurations of neuromorphic hardware; compiled findings into technical paper</li>
-								</ul>
-								
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="section" id="skills">
-					<div class="section-title">Skills</div>
-					<div class="section-contents">
-						<div class="section-entry">
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<b>Programming & Technical Software</b>
-								</div>
-							</div>
-							<ul class="section-entry-points">
-								<li>Proficient in Python, C, C++, Swift (iOS), HTML/CSS, JS, UNIX Shell, Git, MATLAB, R, Altium, Verilog, Logisim, Spice, LaTeX; Experience with MIPS Assembly, Java (Android)</li>
-							</ul>
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<b>Hardware, Systems, & Interface</b>
-								</div>
-							</div>
-							<ul class="section-entry-points">
-								<li>macOS, Windows, iOS, Android, Arduino, Raspberry Pi, BLE, Serial (UART), I2C, Websockets</li>
-							</ul>
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<b>Relevant Coursework</b>
-								</div>
-							</div>
-							<ul class="section-entry-points">
-								<li>Data Structures, Operating Systems, Software Engineering, Machine Learning, Advanced Algorithms, Signals & Systems, Electronics, Technical Writing</li>
-							</ul>
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<b>Creative Software</b>
-								</div>
-							</div>
-							<ul class="section-entry-points">
-								<li>Adobe Photoshop, Final Cut Pro/Motion, MS Office, SolidWorks</li>
-							</ul>						<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<b>Language</b>
-								</div>
-							</div>
-							<ul class="section-entry-points">
-								<li>
-									English <span class="nowrap">(C2 - Native), </span> 
-									Lithuanian <span class="nowrap">(C2 - Native), </span>
-									German <span class="nowrap">(B - Intermediate) </span>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-
-				<div class="section" id="related-experience">
-					<div class="section-title">Related Experience</div>
-					<div class="section-contents">
-						<div class="section-entry">
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<span class="nowrap">Teaching Assistant, </span> 
-									<span class="nowrap">Engineering Models</span> <span class="nowrap">with MATLAB</span>
-								</div>
-								<i class="section-entry-header-info">2016 &ndash; 2018</i>
-							</div>
-							<div class="section-entry-header">
-								<div class="section-entry-header-contents">
-									<span class="nowrap">Counselor/Coordinator, </span>
-									<span class="nowrap">Lithuanian Catholic</span> <span class="nowrap">Youth Camps</span>
-								</div>
-								<i class="section-entry-header-info">2010 &ndash; 2014</i>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="section" id="Projects">
-					<div class="section-title">Projects</div>
-					<div class="section-contents">
-					</div>
-				</div>
-				<div class="section" id="contact">
-					<div class="section-title">Contact</div>
-					<div class="section-contents">
-					</div>
-				</div>
-			</div>
-		</div>
+		<h1><b>Darius Cepulis</b></h1>
+		<h2>Basic assumptions...</h2>
+		<p>...like theories-in-use, tend to be nonconfrontable and nondebatable, and hence are extremely difficult to change. To learn something new in this realm requires us to resurrect, reexamine, and possibly change some of the more stable portions of our cognitive structure... Such learning is intrinsically difficult because the reexamination of basic assumptions temporarily destabilizes our cognitive and interpersonal world, releasing large quantities of basic anxiety. Rather than tolerating such anxiety levels, we tend to want to perceive the events around us as congruent with our assumptions, even if that means distorting, denying, projecting, or in other ways falsifying to ourselves what may be going on around us. It is in this psychological process that culture has its ultimate power.</p>
+		<p>By the way, if you're looking for my resume, check <a href="./resume.html">this</a> out!</p>
 	</body>
 </html>
