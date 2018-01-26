@@ -2,18 +2,22 @@
 <!-- Hi! Thanks for stopping by my source code! I'm in the process of teaching myself web technologies. If you see anything you'd improve, please let me know. -->
 <html>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#404048">
+
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
 	<link rel="manifest" href="/favicons/manifest.json">
 	<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#404048">
-	<meta name="theme-color" content="#404048">
+	<link rel="shortcut icon" href="/favicons/favicon.ico">
+	<meta name="apple-mobile-web-app-title" content="decepulis">
+	<meta name="application-name" content="decepulis">
+	<meta name="msapplication-config" content="/favicons/browserconfig.xml">
 
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-	<link rel="stylesheet" type="text/css" href="resume.css"> 
-	<script src="navbar.js"></script>
+	<link rel="stylesheet" href="./Aileron/Aileron.css">
+
 	<head>
-		<title>Darius Cepulis: Web Resume</title>
+		<title>Darius Cepulis: Resume</title>
 	</head>
 
 	<body>
@@ -22,19 +26,19 @@
 				<div class="header-name">Darius Cepulis</div>
 				<div class="header-subtitle">
 					<div class="header-subtitle-fade-in">&nbsp;</div>
-					<a class="nav">About Me</a>
-					<a class="nav">Education</a>
-					<a class="nav">Work Experience</a>
-					<a class="nav">Skills</a>
-					<a class="nav">Related Experience</a>
-					<a class="nav">Projects</a>
-					<a class="nav">Contact</a>
+					<a class="nav" data-target="about" id="nav-about">About Me</a>
+					<a class="nav" data-target="education" id="nav-education">Education</a>
+					<a class="nav" data-target="work-experience" id="nav-work-experience">Work Experience</a>
+					<a class="nav" data-target="skills" id="nav-skills">Skills</a>
+					<a class="nav" data-target="related-experience" id="nav-related-experience">Related Experience</a>
+					<a class="nav" data-target="projects" id="nav-projects">Projects</a>
+					<a class="nav" data-target="contact" id="nav-contact">Contact</a>
 					<div class="header-subtitle-fade-out">&nbsp;</div>
 				</div>
 			</div>
 
 			<div class="section-box">
-				<div class="section" id="about">
+				<div class="section" data-target="nav-about" id="about">
 					<div class="section-title">About Me</div>
 					<div class="section-contents">
 						<div class="section-entry-header-contents">
@@ -42,7 +46,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="section" id="education">
+				<div class="section" data-target="nav-education" id="education">
 					<div class="section-title">Education</div>
 					<div class="section-contents">
 						<div class="section-entry">
@@ -82,7 +86,7 @@
 					</div>
 				</div>
 
-				<div class="section" id="work-experience">
+				<div class="section" data-target="nav-work-experience" id="work-experience">
 					<div class="section-title">Work Experience</div>
 					<div class="section-contents">
 						<div class="section-entry">
@@ -141,7 +145,7 @@
 					</div>
 				</div>
 
-				<div class="section" id="skills">
+				<div class="section" data-target="nav-skills" id="skills">
 					<div class="section-title">Skills</div>
 					<div class="section-contents">
 						<div class="section-entry">
@@ -192,7 +196,7 @@
 					</div>
 				</div>
 
-				<div class="section" id="related-experience">
+				<div class="section" data-target="nav-related-experience" id="related-experience">
 					<div class="section-title">Related Experience</div>
 					<div class="section-contents">
 						<div class="section-entry">
@@ -213,12 +217,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="section" id="Projects">
+				<div class="section" data-target="nav-projects" id="projects">
 					<div class="section-title">Projects</div>
 					<div class="section-contents">
 					</div>
 				</div>
-				<div class="section" id="contact">
+				<div class="section" data-target="nav-contact" id="contact">
 					<div class="section-title">Contact</div>
 					<div class="section-contents">
 					</div>
@@ -226,4 +230,8 @@
 			</div>
 		</div>
 	</body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="resume.css"> 
+	<script src="navbar.js"></script>
 </html>
