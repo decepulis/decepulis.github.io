@@ -18,7 +18,12 @@ a {
 	transition: background 0.1s;
 	-webkit-transition: background 0.1s;
 }
-a:hover, a.active {
+a:hover{
+	background: rgba(0,0,128,0.50);
+	color: white;
+}
+
+a.active {
 	background: rgba(0,0,128,0.75);
 	color: white;
 }
@@ -64,7 +69,6 @@ a:active {
 	min-height: 44px;
 
 	margin: 0 0;
-	padding: 0 16px;
 
 	overflow-x: auto;
 	overflow-y: visible;
@@ -85,7 +89,7 @@ a:active {
 
 	font-size: 100%;
 	font-weight: 400;
-	padding: 8px 16px;	
+	padding: 8px 12px;	
 
 	user-select: none;
 	-webkit-user-select: none;
@@ -94,16 +98,22 @@ a:active {
 	margin: 0;
 }
 .header-subtitle-fade-in {
-	position: absolute;
+	position: -webkit-sticky;
+    position: sticky;
 	width: 6px;
 	left: 0px;
 	background: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0));
+
+	padding: 8px 8px;	
 }
 .header-subtitle-fade-out {
-	position: absolute;
+	position: -webkit-sticky;
+    position: sticky;
 	width: 6px;
 	right: 0px;
 	background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
+
+	padding: 8px 8px;	
 }
 
 
