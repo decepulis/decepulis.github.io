@@ -13,8 +13,8 @@ $(document).scroll(function(){
 	// the last we passed (unless we're at the bottom)
 	var last=$("#about");
 	$('.section').each(function(){
-		// If we've reached the end of the document within 16px
-		if ($(window).height() + currentPosition >= $(document).height()-16) {
+		// If we've reached the end of the document within 64px
+		if ($(window).height() + currentPosition >= $(document).height()-64) {
 			last = $('#contact');
 			return false; // break
 		}

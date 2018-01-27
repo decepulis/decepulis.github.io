@@ -18,9 +18,11 @@ a {
 	transition: background 0.1s;
 	-webkit-transition: background 0.1s;
 }
-a:hover{
-	background: rgba(0,0,128,0.50);
-	color: white;
+@media (hover: hover) {
+	a:hover{
+		background: rgba(0,0,128,0.50);
+		color: white;
+	}
 }
 
 a.active {
