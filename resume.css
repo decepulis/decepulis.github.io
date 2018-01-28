@@ -28,6 +28,10 @@ a {
 	transition: background 0.1s;
 	-webkit-transition: background 0.1s;
 }
+em {
+	font-style: normal;
+	font-weight: 600;
+}
 @media (hover: hover) {
 	a:hover{
 		background: rgba(0,0,144,0.50);
@@ -154,7 +158,6 @@ p {
 .section-title {
 	font-weight: bold;
 	font-style: italic;
-	font-size: 110%;
 
 	margin-bottom: 0.25em;
 	padding-right: 16px;
