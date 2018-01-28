@@ -11,7 +11,8 @@ $(document).scroll(function(){
 
 	// We'll cycle through the sections to figure out which one was
 	// the last we passed (unless we're at the bottom)
-	var last=$("#about");
+	var last=null;
+
 	$('.section').each(function(){
 		// If we've reached the end of the document within 64px
 		if ($(window).height() + currentPosition >= $(document).height()-64) {
@@ -19,12 +20,18 @@ $(document).scroll(function(){
 			return false; // break
 		}
 		// if we've reached a section after our page top
-		if (currentPosition < $(this).offset().top-64) {
+		if (currentPosition < $(this).offset().top-66) {
 			return false; //break
 		}
 		last = $(this);
 	})
 
+	if (last == null ) { 
+		return; 
+	} else if ( last.attr("id") === "pdf" ) {
+		$(".nav").removeClass("active");
+		return;
+	}
 	// Found it! now we unhighlight all and highlight current section
 	// if we're dealing with new information
 	var target = "#"+last.attr("data-target");
@@ -46,9 +53,6 @@ $(document).scroll(function(){
 		}, 200) // we assume after 200ms that the window has stopped scrolling
 	}
 })
-function updateNavBarScroll(target) {
-	
-}
 
 // When we click on a nav button in the nav bar
 // we jump to its element
@@ -58,6 +62,6 @@ $(".nav").click(function() {
 	// #target.offset().top returns the vertical position
 	var position = $(target).offset().top;
 
-	// and we jump to the position, leaving 60px for the navbar
-	$("html, body").animate({ scrollTop: position-60 }, 500);
+	// and we jump to the position, leaving 64px for the navbar
+	$("html, body").animate({ scrollTop: position-64 }, 500);
 });
