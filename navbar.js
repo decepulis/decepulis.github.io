@@ -15,12 +15,11 @@ $(document).ready(function(){
 })
 
 // on scroll, we update the navbar highlighting
-timer = null;
+timer = null; // we're gonna use this near the end... stay tuned...
 $(document).scroll(function(){
 	var currentPosition = $(window).scrollTop();
-
 	// We'll cycle through the sections to figure out which one was
-	// the last we passed (unless we're at the bottom)
+	// the last we passed (unless we're at the contact section at the bottom.)
 	var last=null;
 
 	$('.section').each(function(){
