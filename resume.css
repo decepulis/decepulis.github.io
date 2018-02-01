@@ -1,3 +1,4 @@
+/*** Global Properties ************************/
 html {
 	-webkit-text-size-adjust: 100%;
 }
@@ -28,7 +29,7 @@ a {
 	transition: background 0.1s;
 	-webkit-transition: background 0.1s;
 }
-em {
+em, em a {
 	font-style: normal;
 	font-weight: 600;
 }
@@ -49,10 +50,20 @@ a:active {
 }
 
 p {
-	text-align: justify;
 	font-weight: 300;
 }
 
+.noselect, .nav, li.collapsible label::before  {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+/*** Superstructure ***************************/
 .paper{
 	background: white;
 	min-width: 270px;
@@ -67,6 +78,7 @@ p {
 	box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
 }
 
+/*** Header ***********************************/
 .header {
 	position: -webkit-sticky;
     position: sticky;
@@ -91,6 +103,8 @@ p {
 	border: 0px solid gray;
 	border-bottom-width: 1px;
 }
+
+/*** Header: Navbar ***************************/
 .header-subtitle {
 	min-height: 44px;
 
@@ -106,7 +120,6 @@ p {
 .header-subtitle::-webkit-scrollbar { 
     display: none; 
 }
-
 .nav, .header-subtitle-fade-in, .header-subtitle-fade-out{
 	display: inline-block;
 	text-align: center;
@@ -116,9 +129,6 @@ p {
 	font-size: 100%;
 	font-weight: 400;
 	padding: 8px 12px;	
-
-	user-select: none;
-	-webkit-user-select: none;
 }
 .header-subtitle> .nav:last-child {
 	margin: 0;
@@ -135,14 +145,14 @@ p {
 .header-subtitle-fade-out {
 	position: -webkit-sticky;
     position: sticky;
-	width: 6px;
+	width: 10px;
 	right: 0px;
 	background: linear-gradient(to left, rgba(255,255,255,1), rgba(255,255,255,0));
 
 	padding: 8px 8px;	
 }
 
-
+/*** Sections *********************************/
 .section-box {
 	padding: 16px 4px;
 
@@ -200,13 +210,92 @@ p {
 	margin-bottom: 0.33em;
 	list-style-type: none;
 }
+
 .section-entry-subpoints {}
 
+/*** Expandable Sections **********************/
+/* https://codepen.io/raubaca/pen/PZzpVe?editors=1100 */
+li.collapsible p {
+	display: block;
+	transition: max-height 0.5s 0s ease-in-out, opacity 0.5s 0.25s ease-in-out;
+}
+
+li.collapsible div.keywords {
+	transition: opacity 0.25s 0s ease-in-out, margin-bottom 0.25s 0s ease-in-out, max-height 0.25s 0s ease-in-out;
+}
+
+/* unchecked */
+li.collapsible input ~ p { 
+	opacity: 0; 
+	max-height: 0em;
+
+	overflow: hidden;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+}
+li.collapsible input ~ div.keywords 
+	{ opacity: 1; max-height: 5rem; margin-bottom: 0.5em;}
+
+/* checked */
+li.collapsible input:checked ~ p { 
+	opacity: 1; 
+	max-height: 25em;
+
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 1em;
+}
+li.collapsible input:checked ~ div.keywords
+	{ opacity: 0; max-height: 0rem; margin-bottom: 0em;}
+
+
+/* Icon */
+li.collapsible input {
+	display: none;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+li.collapsible label {
+	position: relative;
+	font-weight: bold;
+	left: -24px;
+	top: 0px;
+	cursor: pointer;
+	width: 1em;
+}
+li.collapsible label::before {
+	position: absolute;
+	text-align: center;
+
+	width: 22px;
+	height: 22px;
+	line-height: 22px;
+	font-size: 110%;
+	font-weight: 900;
+	color: rgb(0,0,144);
+	content: "+";
+	text-se
+
+	-webkit-transition: transform .36s;
+	-o-transition: transform .36s;
+	transition: transform .36s;
+}
+
+@media (hover: hover) { 
+	li.collapsible label:hover::before{ background: rgba(0,0,144,0.50); color: white; } 
+}
+li.collapsible label:active::before{  background: rgba(0,0,144,0.75); color: white; }
+
+li.collapsible input:checked ~ label::before { content: "-";}
+
+
+/*** Interactive Grids ************************/
 .section-contents-grid {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 }
+
 .grid-item {
 	width: 192px;
 	height: 192px;
@@ -218,18 +307,14 @@ p {
 
 	transition: background 0.2s;
 }
-@media (hover: hover) {
-	.grid-item:hover{
-		background: rgba(0,0,144,0.50);
-		color: white;
-	}
-}
-.grid-item:active {
-	background: rgba(0,0,144,0.75);
+.grid-item:hover{
+	background: rgba(0,0,144,0.50);
 	color: white;
 }
 
 .grid-item:active {
+	background: rgba(0,0,144,0.75);
+	color: white;
 }
 
 .grid-item-title{
@@ -252,6 +337,8 @@ p {
 
 .nowrap { white-space: nowrap; }
 
+
+/*** Media-Specific Properties ****************/
 @media print {
 	.header {
 		position: auto;
@@ -275,11 +362,8 @@ p {
 		padding-right: 16px;
 		-webkit-padding-start: 16px;
 	}
-	.section-entry-points li {
-		margin-bottom: 0.33em;
-	}
 	.grid-item {
 	width: 128px;
 	height: 128px;
-}
+	}
 }

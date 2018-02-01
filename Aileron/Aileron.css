@@ -56,13 +56,13 @@
     font-weight: 300;
     font-style: italic;
 }
-/*
+
 @font-face {
     font-family: 'Aileron';
     src: url('Aileron-Black.ttf') format('truetype');
     font-weight: 900;
     font-style: normal;
-}*/
+}
 
 @font-face {
     font-family: 'Aileron';
