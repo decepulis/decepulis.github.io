@@ -216,11 +216,15 @@ p {
 /*** Expandable Sections **********************/
 /* https://codepen.io/raubaca/pen/PZzpVe?editors=1100 */
 li.collapsible p {
+	position: relative;
+	top: -20px;
 	display: block;
 	transition: max-height 0.5s 0s ease-in-out, opacity 0.5s 0.25s ease-in-out;
 }
 
 li.collapsible div.keywords {
+	position: relative;
+	top: -20px;
 	transition: opacity 0.25s 0s ease-in-out, margin-bottom 0.25s 0s ease-in-out, max-height 0.25s 0s ease-in-out;
 }
 
@@ -257,36 +261,42 @@ li.collapsible input {
 }
 li.collapsible label {
 	position: relative;
-	font-weight: bold;
-	left: -24px;
-	top: 0px;
-	cursor: pointer;
-	width: 1em;
-}
-li.collapsible label::before {
-	position: absolute;
-	text-align: center;
+	display: block;
+
+	left: -32px;
 
 	width: 22px;
 	height: 22px;
+
 	line-height: 22px;
+	text-align: center;
 	font-size: 110%;
 	font-weight: 900;
 	color: rgb(0,0,144);
-	content: "+";
-	text-se
+
+	cursor: pointer;
+
 
 	-webkit-transition: transform .36s;
 	-o-transition: transform .36s;
 	transition: transform .36s;
 }
 
-@media (hover: hover) { 
-	li.collapsible label:hover::before{ background: rgba(0,0,144,0.50); color: white; } 
-}
-li.collapsible label:active::before{  background: rgba(0,0,144,0.75); color: white; }
+/* we use :after to expand the small button to a touchscreen-friendly 44x44px*/
+li.collapsible label:after {
+	content: "";
 
-li.collapsible input:checked ~ label::before { content: "-";}
+	padding: 22px;
+	position: absolute;
+	left: -11px;
+	top:  -11px;
+
+}
+
+@media (hover: hover) { 
+	li.collapsible label:hover{ background: rgba(0,0,144,0.50); color: white; } 
+}
+li.collapsible label:active{  background: rgba(0,0,144,0.75); color: white; }
 
 
 /*** Interactive Grids ************************/
@@ -361,6 +371,9 @@ li.collapsible input:checked ~ label::before { content: "-";}
 	.section-entry-points {
 		padding-right: 16px;
 		-webkit-padding-start: 16px;
+	}
+	li.collapsible label {
+		left: -24px;
 	}
 	.grid-item {
 	width: 128px;
