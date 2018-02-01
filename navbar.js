@@ -14,8 +14,8 @@ $(document).scroll(function(){
 	var last=null;
 
 	$('.section').each(function(){
-		// If we've reached the end of the document within 64px
-		if ($(window).height() + currentPosition >= $(document).height()-64) {
+		// If we've reached the bottom of the contact div, we highlight it in the navbar
+		if ($(window).height() + currentPosition >= $("#contact").offset().top + $("#contact").height()) {
 			last = $('#contact');
 			return false; // break
 		}
