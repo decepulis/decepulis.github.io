@@ -383,3 +383,10 @@ li.collapsible label:active{  background: rgba(0,0,144,0.75); color: white; }
 	height: 128px;
 	}
 }
+
+@media screen and (max-width: 344px) {
+	.grid-item {
+	width: 112px;
+	height: 112px;
+	}
+	}
