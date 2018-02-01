@@ -163,6 +163,9 @@ p {
 .section {
 	display: flex;
 	margin: 0 0 20px 0;
+
+	padding-top: 66px;
+	margin-top: -66px;
 }
 
 .section-title {

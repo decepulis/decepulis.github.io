@@ -1,8 +1,18 @@
 // On ready, we highlight the section that the user is on
 $(document).ready(function(){ $(document).scroll()})
-
 // We do the same on resize
 $(window).resize(function(){ $(document).scroll() })
+
+// Also on document.ready, if we have Javascript enabled,
+// we disable the href navigation in the navbar
+// because we'll be handling that in Javascript
+// and I don't want all these stupid #id URLs 
+// cluttering someone's history
+$(document).ready(function(){ 
+	$(".nav").each(function(){
+		$(this).removeAttr("href");
+	})
+})
 
 // on scroll, we update the navbar highlighting
 timer = null;
@@ -20,7 +30,7 @@ $(document).scroll(function(){
 			return false; // break
 		}
 		// if we've reached a section after our page top
-		if (currentPosition < $(this).offset().top-66) {
+		if (currentPosition < $(this).offset().top) {
 			return false; //break
 		}
 		last = $(this);
@@ -62,6 +72,6 @@ $(".nav").click(function() {
 	// #target.offset().top returns the vertical position
 	var position = $(target).offset().top;
 
-	// and we jump to the position, leaving 64px for the navbar
-	$("html, body").animate({ scrollTop: position-64 }, 500);
+	// and we jump to the position, plus two to make sure we trigger the navbar animation
+	$("html, body").animate({ scrollTop: position+2 }, 500);
 });
