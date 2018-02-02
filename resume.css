@@ -5,7 +5,6 @@ html {
 
 body {
 	font-family: 'Aileron', sans-serif;
-	-webkit-font-smoothing: antialiased;
 	background: rgb(115,115,128);
 	margin: 0 8px;
 }
