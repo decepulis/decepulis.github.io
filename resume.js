@@ -7,10 +7,29 @@ $(window).resize(function(){ $(document).scroll() })
 // we disable the href navigation in the navbar
 // because we'll be handling that in Javascript
 // and I don't want all these stupid #id URLs 
-// cluttering someone's history
+// cluttering someone's history.
 $(document).ready(function(){ 
 	$(".nav").each(function(){
 		$(this).removeAttr("href");
+	})
+})
+
+// here's a function we run when a grid item is clicked
+// which gently scrolls the new div into view
+$(document).ready(function() {
+	$(".grid-item").click(function() {
+		var $gi = $(this);
+		setTimeout(function() {
+			var $giContents  = $gi.children(".grid-item-contents");
+			var giBottom     = $giContents.offset().top + $giContents.height(); 
+			var windowBottom = $(window).scrollTop() + $(window).height();
+			var offset       = windowBottom - giBottom;
+
+			if (offset < 0) {
+				var scrollTo = $(window).scrollTop() - offset + 24;
+				$("html, body").animate({ scrollTop: scrollTo }, 250);
+			}
+		}, 750)
 	})
 })
 

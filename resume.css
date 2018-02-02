@@ -53,6 +53,8 @@ p {
 	font-weight: 300;
 }
 
+.nowrap { white-space: nowrap; }
+
 .noselect, .nav, li.collapsible label::before  {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -90,7 +92,7 @@ p {
 	border: 0px solid gray;
 	border-bottom-width: 1px;
 
-	z-index: 1;
+	z-index: 10;
 }
 .header-name {
 	font-weight: 800;
@@ -218,41 +220,60 @@ p {
 
 /*** Expandable Sections **********************/
 /* https://codepen.io/raubaca/pen/PZzpVe?editors=1100 */
-li.collapsible p {
+	
+/* unchecked */
+li.collapsible input ~ p { 
 	position: relative;
 	top: -20px;
 	display: block;
-	transition: max-height 0.5s 0s ease-in-out, opacity 0.5s 0.25s ease-in-out;
-}
+	transition: 
+		max-height    0.5s 0.25s ease-in-out, 
+		margin-bottom 0.5s 0.25s ease-in-out,
+		opacity       0.5s 0s    ease-in-out;
 
-li.collapsible div.keywords {
-	position: relative;
-	top: -20px;
-	transition: opacity 0.25s 0s ease-in-out, margin-bottom 0.25s 0s ease-in-out, max-height 0.25s 0s ease-in-out;
-}
-
-/* unchecked */
-li.collapsible input ~ p { 
 	opacity: 0; 
 	max-height: 0em;
 
 	overflow: hidden;
 	-webkit-margin-before: 0em;
 	-webkit-margin-after: 0em;
+	margin-bottom: 0em;
 }
-li.collapsible input ~ div.keywords 
-	{ opacity: 1; max-height: 5rem; margin-bottom: 0.5em;}
+li.collapsible input ~ div.keywords {
+	position: relative;
+	top: -20px;
+	transition: 
+		opacity       0.25s 0.50s ease-in-out, 
+		margin-bottom 0.25s 0.25s ease-in-out, 
+		max-height    0.25s 0.25s ease-in-out;
+
+	opacity: 1; 
+	max-height: 5rem; 
+	margin-bottom: 0.5em;
+}
 
 /* checked */
 li.collapsible input:checked ~ p { 
 	opacity: 1; 
 	max-height: 25em;
 
-	-webkit-margin-before: 0em;
-	-webkit-margin-after: 1em;
+	margin-bottom: 1em;
+
+	transition: 
+		max-height    0.5s 0s    ease-in-out,
+		margin-bottom 0.5s 0s    ease-in-out,
+		opacity       0.5s 0.25s ease-in-out;
 }
-li.collapsible input:checked ~ div.keywords
-	{ opacity: 0; max-height: 0rem; margin-bottom: 0em;}
+li.collapsible input:checked ~ div.keywords { 
+	transition: 
+		opacity       0.25s 0s ease-in-out, 
+		margin-bottom 0.25s 0s ease-in-out, 
+		max-height    0.25s 0s ease-in-out;
+
+	opacity: 0; 
+	max-height: 0rem; 
+	margin-bottom: 0em;
+}
 
 
 /* Icon */
@@ -278,11 +299,6 @@ li.collapsible label {
 	color: rgb(0,0,144);
 
 	cursor: pointer;
-
-
-	-webkit-transition: transform .36s;
-	-o-transition: transform .36s;
-	transition: transform .36s;
 }
 
 /* we use :after to expand the small button to a touchscreen-friendly 44x44px*/
@@ -318,37 +334,111 @@ li.collapsible label:active{  background: rgba(0,0,144,0.75); color: white; }
 
 	background: rgba(0,0,144,0.25);
 
-	transition: background 0.2s;
+	transition: /* transitions when grid item shrinks */
+		background 0.25s 0s    ease-in-out,
+		width      0s    0.75s ease-in-out, /* happens last */
+		height     0.5s  0.25s ease-in-out; /* happens after content fade */
 }
 .grid-item:hover{
 	background: rgba(0,0,144,0.50);
-	color: white;
 }
 
 .grid-item:active {
 	background: rgba(0,0,144,0.75);
-	color: white;
 }
 
-.grid-item-title{
+.grid-item-title {
 	position: absolute;
-	top: calc(100% - 2em - 4px); left: 4px; right: 4px; bottom: 4px;
-	background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));;
+	left: 4px; right: 4px; top: 4px;
+	height: 3em;
+	background: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+
+	padding: 0 4px;
+
+	opacity: 1;
 
 	text-align: center;
-	line-height: 2em;
+	font-size: 100%;
 
 	color: white;
-	font-weight: bold;
+ 	font-weight: 600;
+
+ 	transition: /* transitions when grid item shrinks */
+		background 0.5s 0.25s ease-in-out, /* happens after content fade */
+		opacity    0.5s 0.25s ease-in-out; /* happens after content fade */
 }
 
-.grid-img {
+.grid-item-img {
 	object-fit: cover;
 	width: 100%;
 	height: 100%
 }
 
-.nowrap { white-space: nowrap; }
+.grid-item-contents {
+	-webkit-overflow-scrolling: touch;
+
+	position: absolute;
+	top: 3px; bottom: 3px; left: 3px; right: 3px;
+	padding: 8px;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+
+	z-index: 1;
+
+	color: white;
+	background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,.5));
+
+	opacity: 0;
+	overflow-y: hidden;
+
+	transition: /* transition when grid item shrinks */
+		opacity 0.25s 0s ease-in-out; /* happens first */
+}
+
+.grid-item-contents a {
+	color: rgb(192,192,255);
+	font-weight: normal;
+	pointer-events: none;
+  	cursor: default;
+}
+
+.section-contents-grid input {
+	display: none;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+.section-contents-grid input:checked + .grid-item {
+	width: 100%;
+	height: 384px;
+
+	transition: /* transition on grid item growth */
+		background 0.25s 0s  ease-in-out,
+		width      0.0s  0s  ease-in-out, /* happens first */
+		height     0.5s  0s  ease-in-out; /* happens after width */
+}
+
+.section-contents-grid input:checked + .grid-item > .grid-item-title {
+	opacity: 0;
+	background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0));
+
+	transition: /* transition on grid item growth */
+		background 0.5s 0s ease-in-out, /* happens after width */
+		opacity    0.5s 0s ease-in-out; /* happens after width */
+}
+
+.section-contents-grid input:checked + .grid-item > .grid-item-contents {
+	opacity: 1;
+	overflow-y: auto;
+	transition: /* transition on grid item growth */
+		opacity 0.25s 0.5s ease-in-out; /* happens last */
+}
+
+.section-contents-grid input:checked + .grid-item > .grid-item-contents a {
+	pointer-events: initial;
+  	cursor: pointer;
+}
 
 
 /*** Media-Specific Properties ****************/
@@ -379,14 +469,23 @@ li.collapsible label:active{  background: rgba(0,0,144,0.75); color: white; }
 		left: -24px;
 	}
 	.grid-item {
-	width: 128px;
-	height: 128px;
+		width: 128px;
+		height: 128px;
+	}
+	.section-contents-grid input:checked + .grid-item {
+		height: 384px;
 	}
 }
 
-@media screen and (max-width: 344px) {
+@media screen and (max-width: 500px) {
 	.grid-item {
-	width: 112px;
-	height: 112px;
+		width: 112px;
+		height: 112px;
+	}
+	.section-contents-grid input:checked + .grid-item {
+		height: 336px;
+	}
+	.grid-item-title {
+		font-size: 90%;
 	}
 	}

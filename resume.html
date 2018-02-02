@@ -257,41 +257,91 @@
 					</div>
 				</div>
 				<div class="section" data-target="nav-projects" id="projects">
-					<div class="section-title">Selected <strike>Projects</strike> Placeholder</div>
+					<div class="section-title">Selected Projects</div>
 					<div class="section-contents">
 						<div class="section-contents-grid">
-							<div class="grid-item">
-								<img class="grid-img" src="./images/p1.jpg">
-								<div class="grid-item-title">Project 1</div>
-							</div>
-							<div class="grid-item">
-								<img class="grid-img" src="./images/p2.jpg">
-								<div class="grid-item-title">Project 2</div>
-							</div>
-							<div class="grid-item">
-								<img class="grid-img" src="./images/p3.jpg">
-								<div class="grid-item-title">Project 3</div>
-							</div>
-							<div class="grid-item">
-								<img class="grid-img" src="./images/p4.jpg">
-								<div class="grid-item-title">Project 4</div>
-							</div>
-							<div class="grid-item">
-								<img class="grid-img" src="./images/p5.jpg">
-								<div class="grid-item-title">Project 5</div>
-							</div>
-							<div class="grid-item">
-								<img class="grid-img" src="./images/p6.jpg">
-								<div class="grid-item-title">Project 6</div>
-							</div>
-							<div class="grid-item">
-								<img class="grid-img" src="./images/p7.jpg">
-								<div class="grid-item-title">Project 7</div>
-							</div>
-							<div class="grid-item">
-								<img class="grid-img" src="./images/p8.jpg">
-								<div class="grid-item-title">Project 8</div>
-							</div>
+
+							<input id="project-website-check" type="checkbox">
+							<label for="project-website-check" class="grid-item">
+								<p class="grid-item-contents">
+									<b>This Website</b><br>
+									<a target="_blank" href="https://github.com/decepulis/decepulis.github.io"> View the source code here. </a>
+									After spending one-too-many evenings obsessing over my theme parks in Roller Coaster Tycoon, I decided to put my obsession towards something productive. Thirty or fourty hours later, here I am typing this &lt;p&gt; element! I've been applying my experience from my web app writing at Bosch towards writing this page, and like with most coding projects, I've spent a fair amount of time on Stack Overflow figuring out how to do what I want to do. I've spent an incredible amount of time making sure the site will work without JavaScript and on all form factors.
+								</p>
+								<img class="grid-item-img" src="./images/grid-website.jpg">
+								<div class="grid-item-title">This Website</div>
+							</label>
+							
+							<input id="project-thesis-check" type="checkbox">
+							<label for="project-thesis-check" class="grid-item">
+								<p class="grid-item-contents">
+									<b>Thesis: Information Foraging Theory</b><br>
+									In my ongoing thesis (estimated completion, July 2018), I am exploring <a target="_blank" href="https://en.wikipedia.org/wiki/Information_foraging">Information Foraging Theory</a>. We hunt for information in the exact same way that we've evolved to hunt for food. How long do we spend in one place before we move on? How do we estimate how much food that place will have? If we understand that human behavior better, maybe we can make the Software Engineering process better. Can we make developing more efficient by making web pages with good information easier to reach, identify, and navigate? Especially for end users&mdash;not full-time programmers&mdash;this is a particularly relevant question.
+								</p>
+								<img class="grid-item-img" src="./images/grid-ift.jpg">
+								<div class="grid-item-title">Thesis: IFT</div>
+							</label>
+
+							<input id="project-hri-check" type="checkbox">
+							<label for="project-hri-check" class="grid-item">
+								<p class="grid-item-contents">
+									<b>Human-Robot Interaction Study</b><br>
+									This is a space reserved for an upcoming project in my absolute favorite class right now: Human-Machine-Robot Interaction. By the end of the semester, we will have conducted a trial with human subjects, exploring some component of how a robot's appearance, movement, and functionality affect how humans work with them, and vice versa.
+								</p>
+								<img class="grid-item-img" src="./images/grid-comingsoon.jpg">
+								<div class="grid-item-title">HRI Study</div>
+							</label>
+
+							<input id="project-seniordesign-check" type="checkbox">
+							<label for="project-seniordesign-check" class="grid-item">
+								<p class="grid-item-contents">
+									<b>Senior Design: Time Management Web App</b><br>
+									This space is reserved for our ongoing senior design project. Over the course of my last two undergraduate semesters, we've been following a design process to write an application that will somehow alleviate student stress. After identifying student stress as the issue we wanted to solve (new technology is useless if it doesn't make an existing problem somehow better), we narrowed our scope to time management skills. Better time management skills mean lower stress. We've conducted a series of interviews and developed an architecture. In the coming semester, development and testing commence.
+								</p>
+								<img class="grid-item-img" src="./images/grid-comingsoon.jpg">
+								<div class="grid-item-title">App: Time Management</div>
+							</label>
+
+							<input id="project-coffeealarm-check" type="checkbox">
+							<label for="project-coffeealarm-check" class="grid-item">
+								<p class="grid-item-contents">
+									<b>Coffee Maker Alarm Clock</b><br>
+									"Anything?"<br>"Yes, as long as you gain experience with Embedded Systems."<br>Such was the directive that launched our Embedded Systems project, which set out to make coffee using a <i>real</i> brew method (we chose pour-over) and to wake a user up. Controlled by Arduino, the hand-stained wooden programmable digital clock will boil water, pour into a wire-mesh pour over, and ring a large call bell with a servo until you press the big "OFF" button.
+								</p>
+								<img class="grid-item-img" src="./images/grid-coffee.jpg">
+								<div class="grid-item-title">Coffee Maker Alarm Clock</div>
+							</label>
+
+							<input id="project-wordclock-check" type="checkbox">
+							<label for="project-wordclock-check" class="grid-item">
+								<p class="grid-item-contents">
+									<b>Word Clocks</b><br>
+									I thought I solved he yearly struggle of coming up with an individualized thoughtful Christmas present for everyone in the family pretty nicely in 2015! For my Lithuanian family, I made clocks, based off of individually-addressible LEDs (I have an obsession with lighting) driven by an Arduino, which spell out the time in plain English&mdash;er&mdash;Lithuanian. "It is 12 'o clock".
+								</p>
+								<img class="grid-item-img" src="./images/grid-clock.jpg">
+								<div class="grid-item-title">Word Clocks</div>
+							</label>
+
+							<input id="project-qselfie-check" type="checkbox">
+							<label for="project-qselfie-check" class="grid-item">
+								<p class="grid-item-contents">
+									<b>Quantified Selfie</b><br>
+									Inspired by an <a target="_blank" href="http://quantifiedselfie.us">awesome project</a> I saw online, I decided to analyze 6 years of Facebook messages, SMS, and iMessages in order to not only practice data analytics in Python, but also to gain interesing insights on my relationships. The project involved scrubbing HTML, storing data in useful data structures, and manipulating and plotting the data using NumPy and Bokeh in Python.
+								</p>
+								<img class="grid-item-img" src="./images/grid-qselfie.jpg">
+								<div class="grid-item-title">Quantified Selfie</div>
+							</label>
+
+							<input id="project-mirror-check" type="checkbox">
+							<label for="project-mirror-check" class="grid-item">
+								<p class="grid-item-contents">
+									<b>Magic Mirror</b><br>
+									As work on my resume winds down, I begin turning my free time to another HTML project: the Magic Mirror. It would be fun to use <a target="_blank" href="https://magicmirror.builders"> a pre-made open source project</a>, but for now I'm going to write it myself to gain practice in back-end, and more importantly, have an awesome mirror in my bathroom that tells me the weather, tells me the news, and tells me that I look pretty good today.
+								</p>
+								<img class="grid-item-img" src="./images/grid-comingsoon.jpg">
+								<div class="grid-item-title">Magic Mirror</div>
+							</label>
+
 						</div>
 					</div>
 				</div>
@@ -347,7 +397,7 @@
 	</body>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="navbar.js"></script>
+	<script src="resume.js"></script>
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113210151-1"></script>
