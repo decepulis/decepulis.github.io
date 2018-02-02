@@ -21,12 +21,26 @@ $(document).ready(function() {
 		var $gi = $(this);
 		setTimeout(function() {
 			var $giContents  = $gi.children(".grid-item-contents");
-			var giBottom     = $giContents.offset().top + $giContents.height(); 
-			var windowBottom = $(window).scrollTop() + $(window).height();
+			var giHeight     = $giContents.height();
+			var giTop        = $giContents.offset().top;
+			var giBottom     = giTop + giHeight; 
+
+			var windowHeight = $(window).height();
+			var windowTop    = $(window).scrollTop();
+			var windowBottom = windowTop + windowHeight;
+
 			var offset       = windowBottom - giBottom;
 
 			if (offset < 0) {
-				var scrollTo = $(window).scrollTop() - offset + 24;
+				// first, we check if scrolling to the bottom would hide the top
+				// in that case, we scroll to the top, not bottom
+				if (giHeight+66 > windowHeight) {
+					var scrollTo = windowTop + (giTop - windowTop - 64); // 66 as navbar
+				}
+				// otherwise we scroll to the bottom
+				else { 
+					var scrollTo = windowTop - offset + 24; // 24 as padding
+				}
 				$("html, body").animate({ scrollTop: scrollTo }, 250);
 			}
 		}, 750)
