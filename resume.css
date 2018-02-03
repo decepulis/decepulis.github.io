@@ -289,6 +289,8 @@ li.collapsible label {
 
 	left: -32px;
 	width: 22px;
+
+	cursor: pointer;
 }
 
 li.collapsible label:before {
@@ -304,8 +306,6 @@ li.collapsible label:before {
 	font-size: 110%;
 	font-weight: 900;
 	color: rgb(0,0,144);
-
-	cursor: pointer;
 } 
 
 li.collapsible input:checked ~ label:before { content: "-"; }
