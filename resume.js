@@ -36,6 +36,28 @@ $(document).ready(function () {
 	})
 })
 
+//Laziness
+$(document).ready(function(){
+
+	$(".yt-lazy").addClass("javascript-active");
+
+	$(".yt-lazy").click(function() {
+		var h = $(this).height();
+		var w = $(this).width();
+
+        $('<iframe/>', {
+		    frameborder: '0',
+		    allowfullscreen: "",
+		    src: "https://www.youtube.com/embed/"+ $(this).attr("data-src") +"?rel=0&showinfo=0&autoplay=1",
+		    class: "project-modal-image",
+		    height: h+"",
+		    width: w+""
+		}).appendTo($(this).parent());
+		$(this).remove();
+        
+    });
+})
+
 // on scroll, we update the navbar highlighting
 timer = null; // we're gonna use this near the end... stay tuned...
 $(document).scroll(function(){

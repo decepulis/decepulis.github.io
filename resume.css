@@ -481,6 +481,27 @@ li.collapsible label:active:before {  background: rgba(0,0,144,0.75); color: whi
 	margin: 1em 1em 0;
 }
 
+.yt-lazy.javascript-active {
+	cursor: pointer;
+	position: relative;
+	border: 4px solid rgb(180,180,222);
+}
+.yt-lazy > img { display: none; }
+.yt-lazy.javascript-active > img { display: block; width: 100%; height: 100%;}
+.yt-lazy.javascript-active:before {
+	content:" \25BA";
+	color: white;
+
+	position: absolute;
+
+	left: 50%;
+	top: 50%;
+}
+@media (hover: hover) {
+	.yt-lazy.javascript-active:hover { border-color: rgb(110,110,188); }
+}
+.yt-lazy.javascript-active:active { border-color: rgb(50,50,156); }
+
 .project-modal-overlay {
 	position: fixed;
 	top: -10%; left: -10%;

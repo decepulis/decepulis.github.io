@@ -71,14 +71,14 @@
     font-weight: 600;
     font-style: normal;
 }
-@font-face {
+/* @font-face {
     font-family: 'Aileron';
     src: url('aileron-semibolditalic.woff2') format('woff2'),
          url('aileron-semibolditalic.woff') format('woff'),
          url('Aileron-SemiBoldItalic.ttf') format('truetype');
     font-weight: 600;
     font-style: italic;
-}
+} */
 @font-face {
     font-family: 'Aileron';
     src: url('aileron-bold.woff2') format('woff2'),
@@ -103,14 +103,14 @@
     font-weight: 800;
     font-style: normal;
 }
-@font-face {
+/* @font-face {
     font-family: 'Aileron';
     src: url('aileron-heavyitalic.woff2') format('woff2'),
          url('aileron-heavyitalic.woff') format('woff'),
          url('Aileron-HeavyItalic.ttf') format('truetype');
     font-weight: 800;
     font-style: italic;
-}
+} */
 /* @font-face {
     font-family: 'Aileron';
     src: url('aileron-black.woff2') format('woff2'),
