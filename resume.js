@@ -14,36 +14,25 @@ $(document).ready(function(){
 	})
 })
 
-// here's a function we run when a grid item is clicked
-// which gently scrolls the new div into view
-$(document).ready(function() {
-	$(".grid-item").click(function() {
-		var $gi = $(this);
-		setTimeout(function() {
-			var $giContents  = $gi.children(".grid-item-contents");
-			var giHeight     = $giContents.height();
-			var giTop        = $giContents.offset().top;
-			var giBottom     = giTop + giHeight; 
+// PROJECTS: here's some code that'll close projects on esc
+// and code that will lock body scrolling when a project is open
+$(document).ready(function () {
+    $(document).keydown(function(e){
+        if(e.keyCode == 27) {
+            $('.project-checkbox').each(function() {
+            	$(this).prop('checked', false);
+            });
+        }
+    });
 
-			var windowHeight = $(window).height();
-			var windowTop    = $(window).scrollTop();
-			var windowBottom = windowTop + windowHeight;
-
-			var offset       = windowBottom - giBottom;
-
-			if (offset < 0) {
-				// first, we check if scrolling to the bottom would hide the top
-				// in that case, we scroll to the top, not bottom
-				if (giHeight+66 > windowHeight) {
-					var scrollTo = windowTop + (giTop - windowTop - 64); // 66 as navbar
-				}
-				// otherwise we scroll to the bottom
-				else { 
-					var scrollTo = windowTop - offset + 24; // 24 as padding
-				}
-				$("html, body").animate({ scrollTop: scrollTo }, 250);
-			}
-		}, 750)
+    $('#projects').find('label').click(function() {
+    	// if a modal is open and about to close (length > 1) then we enable scroll
+    	if ($('#projects').find('input:checkbox:checked').length > 0) {
+    		$("body").removeClass('noscroll');
+    	}
+    	else { 
+    		$("body").addClass('noscroll');
+    	}
 	})
 })
 
