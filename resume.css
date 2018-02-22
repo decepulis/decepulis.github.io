@@ -589,9 +589,8 @@ li.collapsible label:active:before {  background: rgba(0,0,144,0.75); color: whi
 
 @media screen and (max-width: 500px) {
 	#headshot {
-		margin-right:16px;
-		margin-bottom:4px;
-		width:40%;
+		margin: 0 20% 16px;
+		width: 60%;
 	}
 	.grid-item {
 		width: 112px;
