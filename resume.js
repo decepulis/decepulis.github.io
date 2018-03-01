@@ -36,10 +36,10 @@ $(document).ready(function () {
 	})
 })
 
-//Laziness
+//laziness
 $(document).ready(function(){
 
-	$(".yt-lazy").addClass("javascript-active");
+	$(".yt-lazy").addClass("javascript-enabled");
 
 	$(".yt-lazy").click(function() {
 		var h = $(this).height();
@@ -60,31 +60,32 @@ $(document).ready(function(){
 
 // on scroll, we update the navbar highlighting
 timer = null; // we're gonna use this near the end... stay tuned...
+
 $(document).scroll(function(){
 	var currentPosition = $(window).scrollTop();
 	// We'll cycle through the sections to figure out which one was
 	// the last we passed (unless we're at the contact section at the bottom.)
 	var last=null;
-
-	$('.section').each(function(){
-		// If we've reached the bottom of the contact div, we highlight it in the navbar
-		if ($(window).height() + currentPosition >= $("#contact").offset().top + $("#contact").height()) {
-			last = $('#contact');
-			return false; // break
-		}
-		// if we've reached a section after our page top
-		if (currentPosition < $(this).offset().top) {
-			return false; //break
-		}
-		last = $(this);
-	})
-
-	if (last == null ) { 
-		return; 
-	} else if ( last.attr("id") === "pdf" ) {
-		$(".nav").removeClass("active");
-		return;
+	// If we've reached the bottom of the contact div, we highlight it in the navbar
+	if ($(window).height() + currentPosition >= $("#contact").offset().top + $("#contact").height()) 
+	{
+		last = $('#contact');
+	} 
+	else 
+	{
+		$('.section').each(function(){
+			// if we've reached a section after our page top
+			if (currentPosition < $(this).offset().top) {
+				return false; //break
+			}
+			last = $(this);
+		})
 	}
+
+	if (last == null ) 
+	{ 
+		return; 
+	} 
 	// Found it! now we unhighlight all and highlight current section
 	// if we're dealing with new information
 	var target = "#"+last.attr("data-target");
@@ -96,6 +97,7 @@ $(document).scroll(function(){
 		// Finally, we try and center the newly highlighted div
 		// ONCE the window has stopped scrolling
 		if (timer !== null) { clearTimeout(timer) }
+
 		timer = setTimeout(function(){
 			var halfway  = $(window).width()/2; //what's the center of our window?
 			var navLoc   = $(target).offset().left + $(target).width()/2;
@@ -116,5 +118,9 @@ $(".nav").click(function() {
 	var position = $(target).offset().top;
 
 	// and we jump to the position, plus two to make sure we trigger the navbar animation
-	$("html, body").animate({ scrollTop: position+2 }, 500);
+	// making sure to hide all the project modals during the animation to reduce jank
+	$('.project-modal').each( function(){ $(this).hide() } )
+	var showAgain = function() { $('.project-modal').each( function(){ $(this).show() } ) }
+
+	$("html, body").animate({ scrollTop: position+2 }, 500,  showAgain);
 });

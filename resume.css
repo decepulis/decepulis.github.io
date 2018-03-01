@@ -421,12 +421,14 @@ li.collapsible label:active:before {  background: rgba(0,0,144,0.75); color: whi
 	position: fixed;
 	max-height: calc(100% - 64px);
 
-	left: 25%; right: 25%;
+	left: 25%; right: 25%; top: 32px;
 
 	z-index: 101;
 
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
+
+	will-change: transform;
 }
 .project-modal-header { 
 	display: flex;
@@ -482,14 +484,14 @@ li.collapsible label:active:before {  background: rgba(0,0,144,0.75); color: whi
 	margin: 1em 1em 0;
 }
 
-.yt-lazy.javascript-active {
+.yt-lazy.javascript-enabled {
 	cursor: pointer;
 	position: relative;
 	border: 4px solid rgb(180,180,222);
 }
 .yt-lazy > img { display: none; }
-.yt-lazy.javascript-active > img { display: block; width: 100%; height: 100%;}
-.yt-lazy.javascript-active:before {
+.yt-lazy.javascript-enabled > img { display: block; width: 100%; height: 100%;}
+.yt-lazy.javascript-enabled:before {
 	content:" \25BA";
 	color: white;
 
@@ -499,46 +501,58 @@ li.collapsible label:active:before {  background: rgba(0,0,144,0.75); color: whi
 	top: 50%;
 }
 @media (hover: hover) {
-	.yt-lazy.javascript-active:hover { border-color: rgb(110,110,188); }
+	.yt-lazy.javascript-enabled:hover { border-color: rgb(110,110,188); }
 }
-.yt-lazy.javascript-active:active { border-color: rgb(50,50,156); }
+.yt-lazy.javascript-enabled:active { border-color: rgb(50,50,156); }
 
 .project-modal-overlay {
 	position: fixed;
 	top: -10%; left: -10%;
 	width: 120%;
 	height: 120%;
+	/* Poor Performance
 	-webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
+    */
     background: rgba(0,0,0,0.32);
 	z-index: 100;
+
+	will-change: transform;
 }
 
 .project-modal > .project-modal-contents {
-	top: -100%;
+	transform: 
+		translate3d(0,-200%,0);
 
 	transition:
-		top 0.5s;
+		transform 0.5s 0.2s ease-in-out;
 }
 .section-contents-grid input:checked + .project-modal > .project-modal-contents {
-	top: 32px;
+	transform: 
+		translate3d(0,0,0);
+
 	transition:
-		top 0.5s;
+		transform 0.5s 0s   ease-in-out;
 }
 
-.project-modal-overlay {
+.project-modal.project-modal > .project-modal-overlay {
 	transform: scale(0);
 	opacity: 0;
-	transition:
-		transform 0s 0.5s ease-in-out,
-		opacity 0.3s 0s ease-in-out;
+
+	transition: 
+		transform 0s 1.0s ease-in-out,
+		opacity 0.2s 0.5s   ease-in-out;
+
+	will-change: transform;
 }
 .section-contents-grid input:checked + .project-modal > .project-modal-overlay {
 	transform: scale(1);
 	opacity: 1;
 	transition:
 		transform 0s 0s ease-in-out,
-		opacity 0.3s 0s ease-in-out;
+		opacity 0.2s 0s ease-in-out;
+
+	will-change: transform;
 }
 
 #headshot {
