@@ -118,7 +118,7 @@ $(".nav").click(function() {
 	var position = $(target).offset().top;
 
 	// and we jump to the position, plus two to make sure we trigger the navbar animation
-	// making sure to hide all the project modals during the animation to reduce jank
+	// making sure to hide all the offscreen project modals during the animation to reduce jank
 	$('.project-modal').each( function(){ $(this).hide() } )
 	var showAgain = function() { $('.project-modal').each( function(){ $(this).show() } ) }
 

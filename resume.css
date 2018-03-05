@@ -413,7 +413,6 @@ li.collapsible label:active:before {  background: rgba(0,0,144,0.75); color: whi
 }
 
 .project-modal {
-	display: none;
 }
 .project-modal-contents {
 	background: white;
