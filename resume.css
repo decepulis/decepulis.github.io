@@ -412,8 +412,6 @@ li.collapsible label:active:before {  background: rgba(0,0,144,0.75); color: whi
 	left: 0px;
 }
 
-.project-modal {
-}
 .project-modal-contents {
 	background: white;
 	box-shadow: 4px 4px 4px rgba(0,0,0,0.4);
@@ -518,6 +516,19 @@ li.collapsible label:active:before {  background: rgba(0,0,144,0.75); color: whi
 	z-index: 100;
 
 	will-change: transform;
+}
+
+.project-modal {
+	opacity: 0;
+	transition:
+		opacity 0s 0.7s ease-in-out;
+	z-index: 100;
+}
+.section-contents-grid input:checked + .project-modal {
+	opacity: 1;
+	transition:
+		opacity 0s 0.0s ease-in-out;
+	z-index: 100;
 }
 
 .project-modal > .project-modal-contents {
