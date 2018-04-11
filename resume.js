@@ -45,15 +45,16 @@ $(document).ready(function(){
 		var h = $(this).height();
 		var w = $(this).width();
 
-        $('<iframe/>', {
-		    frameborder: '0',
-		    allowfullscreen: "",
-		    src: "https://www.youtube.com/embed/"+ $(this).attr("data-src") +"?rel=0&showinfo=0&autoplay=1",
-		    class: "project-modal-image",
-		    height: h+"",
-		    width: w+""
-		}).appendTo($(this).parent());
-		$(this).remove();
+        $(this).replaceWith(
+	        $('<iframe/>', {
+			    frameborder: '0',
+			    allowfullscreen: "",
+			    src: "https://www.youtube.com/embed/"+ $(this).attr("data-src") +"?rel=0&showinfo=0&autoplay=1",
+			    class: "project-modal-image",
+			    height: h+"",
+			    width: w+""
+			})
+		)
         
     });
 })

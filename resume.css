@@ -239,8 +239,14 @@ p {
 	margin-bottom: 0.33em;
 	list-style-type: none;
 }
-
-.section-entry-subpoints {}
+.section-entry-points li b {
+	font-weight: 300;
+	font-style: italic;
+}
+.section-entry-points li ul li {
+	margin-bottom: 0em;
+	list-style-type: none;
+}
 
 /*** Expandable Sections **********************/
 /* https://codepen.io/raubaca/pen/PZzpVe?editors=1100 */
@@ -491,6 +497,7 @@ li.collapsible label:active:before {  background: rgba(0,0,144,0.75); color: whi
 .yt-lazy.javascript-enabled > img { display: block; width: 100%; height: 100%;}
 .yt-lazy.javascript-enabled:before {
 	content:" \25BA";
+	font-size: 120%;
 	color: white;
 
 	position: absolute;
