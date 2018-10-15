@@ -317,8 +317,8 @@
 							</div>
 
 							<label for="project-homekitrgb-check" class="grid-item">
-								<img class="grid-item-img" src="./images/grid-homekitrgb.jpg">
-								<div class="grid-item-title">(Ongoing) DIY HomeKit RGB Strip</div>
+								<img class="grid-item-img" src="./images/grid-homekitrgb-2.jpg">
+								<div class="grid-item-title">DIY HomeKit RGB Strip</div>
 							</label>
 							<input class="project-checkbox" id="project-homekitrgb-check" type="checkbox">
 							<div id="project-homekitrgb-modal" class="project-modal">
@@ -330,8 +330,8 @@
 										<label for="project-homekitrgb-check" class="project-modal-close">&times;</label>
 									</div>
 									<div class="project-modal-body">
-										When the TensorFlow and Keras project seems like too much work, I go back to my comfort zone: Hobby Electronics. Arduinos and Raspberry Pis have always been my favorite toys at home! Furthermore, ever since buying a set of Philips Hue lights, I've been trying to HomeKit automate <emph>everything</emph>. Finally, as anyone who has ever lived with me can attest, I have a thing about lighting. I will spend a whole afternoon trying to get the right color, intensity, and accent lighting in a room. This leads me to my latest project: an <a target="_blank" rel="nooopener" href="https://en.wikipedia.org/wiki/ESP8266">ESP8266</a>-controlled RGB light strip.
-
+										Hobby Electronics: my comfort zone. Arduinos and Raspberry Pis have always been my favorite toys at home. And then, ever since buying a set of Philips Hue lights, I've been trying to automate <emph>everything</emph> by hooking it up to Apple's <a target="_blank" rel="nooopener" href="https://www.apple.com/ios/home/">HomeKit</a> smart home control system. Finally, as anyone who has ever lived with me can attest, I have a thing about lighting. I will spend a whole afternoon trying to get the right color, intensity, and accent lighting in a room. This leads me to this project: an <a target="_blank" rel="nooopener" href="https://en.wikipedia.org/wiki/ESP8266">ESP8266</a>-controlled RGB light strip.
+										<br><br>
 										The motive of this project, besides having another fun and cool light source, was to get to know the ESP8266, which promises to enable extremely inexpensive homemade smart home appliances. And "inexpensive" is a key word here! Inspired by <a target="_blank" rel="nooopener" href="https://randomnerdtutorials.com/10-diy-wifi-rgb-led-mood-light-with-esp8266-step-by-step/">another project</a>, I assembled my BOM mostly from eBay for about $20:
 										<ul>
 											<li>$6.30 <a target="_blank" rel="nooopener" href="https://www.amazon.com/gp/product/B01IK9GEQG/ref=oh_aui_detailpage_o02_s00?ie=UTF8&psc=1">NodeMCU ESP8266 ESP-12E Board</a> (chosen for its accessibility for ESP8266 beginners)</li>
@@ -341,11 +341,20 @@
 											<li>3x 1kohm Resistors</li>
 											<li>Wiring, Soldering essentials</li>
 										</ul>
-										<img class="project-modal-image small" src="./images/grid-homekitrgb-circuit.jpg">
+										<img class="project-modal-image small" src="./images/grid-homekitrgb-1.jpg">
 										<br>
-										Now, remains the connectivity part. I've successfully managed to connect the ESP8266 to my wifi network. Next, testing the circuit with simple HTTP control (there are many examples of that <a target="_blank" rel="nooopener" href="https://randomnerdtutorials.com/10-diy-wifi-rgb-led-mood-light-with-esp8266-step-by-step/">online</a>). After I verify my circuit that way, there are several methods that I could take to connect my circuit to HomeKit, ranging from connecting them to an instance of <a target="_blank" rel="nooopener" href="http://supersimo88.altervista.org/homekit-philips-hue-clone-with-standard-non-addressable-rgb-strip-and-esp8266/">HAP-NodeJS</a> or <a target="_blank" rel="nooopener" href="https://github.com/christophhagen/homebridge-ESP-LED">Homebridge</a> on one of the Raspberry Pis I have, to having the device <a target="_blank" rel="nooopener" href="https://github.com/HomeACcessoryKid/ESP8266-HomeKit">connect directly</a> to my HomeKit database. Any of these approaches is going to take learning about the ESP8266 and HomeKit more, but I'm ready to do it.
+										After remembering how transistors work and assembling and testing the circuit with some simple <a target="_blank" rel="nooopener" href="https://github.com/decepulis/SMD5050-Homebridge/blob/master/experiments/RGB5050_local/RGB5050_local.ino">offline Arduino code</a>, the time came to connect the circuit to HomeKit... Luckily, there was no need to re-invent the wheel on this one, as it had been done before. (I'm not claiming this is novel work!) While I considered connecting the ESP8266 to an <a target="_blank" rel="nooopener" href="http://supersimo88.altervista.org/homekit-philips-hue-clone-with-standard-non-addressable-rgb-strip-and-esp8266/">MQTT Server</a> that could communicate with HomeKit, or even <a target="_blank" rel="nooopener" href="https://github.com/HomeACcessoryKid/ESP8266-HomeKit">connecting directly</a>, ultimately I decided to find a solution that relied on <a target="_blank" rel="nooopener" href="https://github.com/HomeACcessoryKid/ESP8266-HomeKit">homebridge</a>, a wonderful open-source project that runs on a server and looks like a HomeKit hub to Apple devices, which I already had running in my home. And, I even found a <a target="_blank" rel="nooopener" href="https://www.esp8266.com/viewtopic.php?f=11&t=12259">great guide</a> which provided both functioning Arduino code to run on the ESP8266, and configuration for a homebridge module. Finally, I went ahead and <a target="_blank" rel="nooopener" href="https://github.com/decepulis/SMD5050-Homebridge/blob/master/SMD5050-Homebridge.ino">rewrote the Arduino Code</a> so that switching between colors would have a nice transition, and made some changes to the <a target="_blank" rel="nooopener" href="https://github.com/decepulis/SMD5050-Homebridge/blob/master/config.json">config.json</a> in order to work with the latest version of the homebridge module.
 										<br>
-										<img class="project-modal-image small" src="./images/grid-homekitrgb.jpg">
+										<img class="project-modal-image grid" src="./images/grid-homekitrgb-2.jpg">
+										<img class="project-modal-image grid" src="./images/grid-homekitrgb-3.jpg">
+										<br><br>
+										After an afternoon of bug-fixing (you'll notice, in the video below, things like White having a wild HEX value in the serial output thanks to a bug in my brightness-parsing code), I stuck all the components into a project box (may the gods of soldering, electrical tape, and hot glue please forgive me) and gave it a good stress test. Success.
+										<br>
+										<div class="project-modal-image small yt-lazy" data-src="OlqLOugIliA">
+											<img class="" src="./images/16-9.jpg">
+											<noscript><iframe src="https://www.youtube-nocookie.com/embed/OlqLOugIliA?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></noscript>
+										</div>
+										<img class="project-modal-image small" src="./images/grid-homekitrgb-4.jpg">
 									</div>
 								</div>
 							</div>
@@ -373,7 +382,7 @@
 							
 							<label for="project-thesis-check" class="grid-item">
 								<img class="grid-item-img" src="./images/grid-ift.png">
-								<div class="grid-item-title">Thesis: IFT</div>
+								<div class="grid-item-title">Thesis &amp; Publication</div>
 							</label>
 							<input class="project-checkbox" id="project-thesis-check" type="checkbox">
 							<div id="project-thesis-modal" class="project-modal">
@@ -381,7 +390,7 @@
 								</label>
 								<div class="project-modal-contents">
 									<div class="project-modal-header">
-										<b>Thesis: Information Foraging Theory in Heterogeneous Graphs</b>
+										<b>Creating Socio-Technical Patches for Information Foraging: A Requirements Traceability Case Study</b>
 										<label for="project-thesis-check" class="project-modal-close">&times;</label>
 									</div>
 									<div class="project-modal-body">
@@ -389,7 +398,7 @@
 										<br><br>
 										Within information foraging theory, I'm currently focusing on foraging in socio-technical environments. It's hard to answer questions in environments that have both information artifacts and people; one must consider both the relationships between information and the relationships between people when seeking answers. For example: let's say I just saw the movie Interstellar and I'm looking for more moves I'd like. We could recommend Gravity, or Star Wars, or The Martian, too. But despite being sci-fi, they're all quite different movies. What happens, though, if we add a human element? Christopher Nolan directed Interstellar. That connects me to The Dark Knight and Dunkirk&mdash;now different genres, but still movies I loved for the craft and scale that Christopher Nolan brings. By adding a human element to our graph, among other elements to make it heterogeneous, we suddenly have more nuanced information foraging.
 										<br><br>
-										Soon, my thesis should be published by the university and I'll be presenting it at <a target="_blank" rel="nooopener" href="http://vlhcc18.github.io/accepted_papers.html">VL/HCC 2018</a> in October. I'll link to both once they're up!
+										With the indispensible guidance of my advisor, and quite a few late nights, I was able to submit the core work of my thesis to IEEE's Visual Languages and Human-Centric Computing Conference (VL/HCC) in April of 2018, four months after beginning work. Incredibly, it was <a target="_blank" rel="nooopener" href="http://vlhcc18.github.io/accepted_papers.html">accepted</a>! I had an incredible experience <a target="_blank" rel="nooopener" href="https://www.instagram.com/p/BoaEUbPH8Zv/?taken-by=dardarb1nks">traveling</a> <a target="_blank" rel="nooopener" href="https://www.instagram.com/p/BofZdvKnExe/?taken-by=dardarb1nks">to</a> <a target="_blank" rel="nooopener" href="https://www.instagram.com/p/BoeQUDAH_uS/?taken-by=dardarb1nks">Lisbon</a>, and presenting my work to the conference, while learning about the world of Visual Languages and Human-Centric Computing. When the proceedings show up online, I'll link to them here.
 										<br><br>
 										Image: The work which formed my thesis consistedof two parts: creating graphs from socio-technical environments, and assigning weights to each node in the graph (where a weight represents a node's relevance to a user's question in that environment). You can see one of these networks here, where the intensity of red in each node represents its weight.
 										<img class="project-modal-image small" src="./images/grid-ift.png">
@@ -413,7 +422,7 @@
 									<div class="project-modal-body">
 										Maybe I should have gone into Psychology, for Human Factors. Don't get me wrong&mdash;I <i>love</i> problem solving with computers. But figuring out human problems is just as fun to me as building an app or gizmo. I first had an inkling of this when I had the wonderful challenge of designing UI/UX for non-technical users of my app. How do they think the app should work, and what visual cues could I provide, incorporating those expectations, so that the user could accomplish their tasks? In Human-Robot Interaction, I had a semester of an in-depth look at how people think, and how we should design robots around those thoughts. 
 										<br><br>
-										Currently, we're wrapping up our class project. We were tasked with designing a Human-Robot interaction study, to test how humans react to some element within robotics. To substantially lighten physical, monetary, and safety concerns, we decided to conduct a trial in Virtual Reality. Within a VR environment, programmed in Unity, we had our subjects pass a ball to a humanoid robot arm and a non-humanoid robot arm. We were testing to see if the appearance of the robot would affect the passing task (with the hypothesis that our subjects would more-confidently pass the ball to the humanoid robot). 
+										In this class's final project, we were tasked with designing a Human-Robot interaction study, to test how humans react to some element within robotics. To substantially lighten physical, monetary, and safety concerns, we decided to conduct a trial in Virtual Reality. Within a VR environment, programmed in Unity, we had our subjects pass a ball to a humanoid robot arm and a non-humanoid robot arm. We were testing to see if the appearance of the robot would affect the passing task (with the hypothesis that our subjects would more-confidently pass the ball to the humanoid robot). 
 										<br><br>
 										How did it go? Well, not that well. At the end of the semester, there were only so many underclassmen who weren't furiously studying for exams that we could conscript for our test. With a sample size of 16, we didn't have the statistical power to say anything for certain. Aside from that, our <a target="_blank" rel="nooopener" href="http://www.bartneck.de/publications/2009/measurementInstrumentsRobots/">Godspeed Questionnaire</a> indicated that perhaps the difference between our humanoid and non-humanoid models wasn't good enough. Is it something we could publish? Heck no. But I learned so much about conducting a human trials, and indeed, Human-Robot Interaction.
  
@@ -452,13 +461,13 @@
 										<br>
 										Then, came spring semester. <i>Oh</i> how quickly that deadline came up on us. Overwhelmed with our other classes, we had trouble dedicating the time we needed to polish this application. Frankly, we could have used our own app. But despite that, we managed to constantly adapt our plan to changing circumstances and to have a working prototype at the Senior Design Expo. And here it is: 
 										<div class="project-modal-image small yt-lazy" data-src="C1NkhS_lgLs">
-											<img class="" src="./images/grid-tt-interface.jpg">
+											<img class="" src="./images/16-9.jpg">
 											<noscript><iframe src="https://www.youtube-nocookie.com/embed/C1NkhS_lgLs?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></noscript>
 										</div>
 										<br>
 										It wasn't without bugs, but we still found things to be proud of. The Google Calendar integration had a surprising number of hurdles that were overcome. The interview process was extraordinarily insightful, and deeply developed our skills in developing requirements. We managed to meet our stakeholders' requirements with a clever paradigm that encouraged users to schedule work in reasonable blocks, ahead of time, and to still get plenty of sleep. We learned from Material Design and the Apple Human Interface Guidelines and developed an intuitive design language and interaction paradigm. And finally, the project itself managed to be one last lesson in programming Time Management.
 										<br><br>
-										<a target="_blank" rel="nooopener" href="https://github.com/decepulis/tic-talk"> View the source code here. </a>
+										<a target="_blank" rel="nooopener" href="https://github.com/decepulis/tic-talk"> View the source code here. It's messy, I know.</a>
 									</div>
 								</div>
 							</div>
@@ -571,7 +580,7 @@
 								<ul class="section-entry-points noindent">
 									<li><b>E-Mail:&ensp;</b><a href="mailto:darius@decepulis.com">darius@decepulis.com</a></li>
 									<li><b>LinkedIn:&ensp;</b><a target="_blank" rel="nooopener" href="https://www.linkedin.com/in/decepulis/">https://www.linkedin.com/<wbr>in/<wbr>decepulis/</a></li>
-									<li><b>Facebook:&ensp;</b><a target="_blank" rel="nooopener" href="https://www.facebook.com/de.cepulis">https://www.facebook.com/<wbr>de.cepulis</a></li>
+									<li><b>Facebook:&ensp;</b><a target="_blank" rel="nooopener" href="https://www.facebook.com/de.cepulis">https://www.facebook.com/<wbr>de.cepulis/</a></li>
 									<li><b>Instagram:&ensp;</b><a target="_blank" rel="nooopener" href="https://www.instagram.com/dardarb1nks/">https://www.instagram.com/<wbr>dardarb1nks/</a></li>
 								</ul>
 							</div>
