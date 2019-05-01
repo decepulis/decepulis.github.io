@@ -1,0 +1,52 @@
+<html lang="en-US">
+
+    <head>
+        <style>
+        .iframe-wrapper { 
+            width: 512px; height: 384px;
+            padding: 0;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .iframe-rotate-right {
+            box-shadow:
+                -27.1px 62.5px 125px -25px rgba(50,50,93,.5),
+                -16.2px 37.5px 75px -37.5px rgba(0,0,0,.6);
+            -webkit-transform: rotate3d(.5,.866,0,15deg) rotateZ(-1deg);
+        }
+        .iframe-rotate-left {
+            float: right;
+            box-shadow:
+                27.1px 62.5px 125px -25px rgba(50,50,93,.5),
+                16.2px 37.5px 75px -37.5px rgba(0,0,0,.6);
+            -webkit-transform: rotate3d(.5,-.866,0,15deg) rotateZ(1deg);
+        }
+        .iframe-rotated {
+            width: 1024px; height: 768px;
+            border: 0px;
+        }
+        .iframe-rotated {
+            -webkit-transform: scale(0.50);
+            -webkit-transform-origin: 0 0;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="iframe-wrapper iframe-rotate-right">
+            <iframe 
+                class="iframe-rotated"
+                width="300"
+                height="200"
+                src="https://www.microsensorlabs.com/">
+            </iframe>
+        </div>
+        <div class="iframe-wrapper iframe-rotate-left">
+            <iframe 
+                class="iframe-rotated"
+                width="300"
+                height="200"
+                src="http://relaxed-mccarthy-e072d5.netlify.com">
+            </iframe>
+        </div>
+    </body>
+</html>
