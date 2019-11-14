@@ -1,3 +1,2 @@
 # decepulis.com
-### First Steps...
-This site primarily hosts my [Comprehensive Resume](http://decepulis.com/resume.html). One day, it might be more! (_I've always wanted to get into blogging..._) It was developed in manually-writen, self-taught HTML/CSS/JS. 
+This site primarily hosts my [Comprehensive Resume](http://decepulis.com/resume.html) from my first round of job searching. I largely didn't know what I was doing when I wrote it, but I think it still turned out okeydokey!
